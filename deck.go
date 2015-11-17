@@ -10,7 +10,7 @@ type Deck struct {
 func (d Deck) String() string {
 	str := ""
 	for _, card := range d.Cards {
-		str += fmt.Sprint(card) + "\n"
+		str += fmt.Sprint(card) + " "
 	}
 	return str
 }
