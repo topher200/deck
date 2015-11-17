@@ -50,11 +50,6 @@ func (d *Deck) NumberOfCards() int {
 	return len(d.Cards)
 }
 
-// Card is a getter function to retrive a specific card at a given index
-func (d *Deck) Card(index int) *Card {
-	return &d.Cards[index]
-}
-
 // GetSignature returns the signature of the deck
 // The signature is a string in which each card is
 // represented as a hex character. Each hex character
