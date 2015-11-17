@@ -17,9 +17,9 @@ func (deck *Deck) MultiShuffle(iterations int) {
 func (deck *Deck) Shuffle() {
 
 	rand.Seed(time.Now().UnixNano())
-	N := len(deck.cards)
+	N := len(deck.Cards)
 	for i := 0; i < N; i++ {
 		r := i + rand.Intn(N-i)
-		deck.cards[r], deck.cards[i] = deck.cards[i], deck.cards[r]
+		deck.Cards[r], deck.Cards[i] = deck.Cards[i], deck.Cards[r]
 	}
 }

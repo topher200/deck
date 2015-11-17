@@ -9,7 +9,7 @@ import (
 
 func TestSmallDeckToString(t *testing.T) {
 	deck := NewEmptyDeck()
-	deck.cards = append(deck.cards, Card{ACE, HEART}, Card{KING, HEART})
+	deck.Cards = append(deck.Cards, Card{ACE, HEART}, Card{KING, HEART})
 	result := fmt.Sprintf("%s", deck)
 	assert.Equal(t, "A♥\nK♥\n", result, "These should be equal")
 }
@@ -25,7 +25,7 @@ func TestDeckToString(t *testing.T) {
 
 func TestDeckSignature(t *testing.T) {
 	deck := NewEmptyDeck()
-	deck.cards = append(deck.cards, Card{ACE, HEART}, Card{KING, HEART}, Card{TEN, CLUB})
+	deck.Cards = append(deck.Cards, Card{ACE, HEART}, Card{KING, HEART}, Card{TEN, CLUB})
 	result := deck.GetSignature()
 	assert.Equal(t, "02c290", result, "These should be equal")
 }

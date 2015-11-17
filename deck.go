@@ -4,12 +4,12 @@ import "fmt"
 
 // Deck is a deck of cards. An array of type Card
 type Deck struct {
-	cards []Card
+	Cards []Card
 }
 
 func (d Deck) String() string {
 	str := ""
-	for _, card := range d.cards {
+	for _, card := range d.Cards {
 		str += fmt.Sprint(card) + "\n"
 	}
 	return str
@@ -47,12 +47,12 @@ func NewEmptyDeck() Deck {
 
 // NumberOfCards is a utility function that tells you how many cards are left in the deck
 func (d *Deck) NumberOfCards() int {
-	return len(d.cards)
+	return len(d.Cards)
 }
 
 // Card is a getter function to retrive a specific card at a given index
 func (d *Deck) Card(index int) *Card {
-	return &d.cards[index]
+	return &d.Cards[index]
 }
 
 // GetSignature returns the signature of the deck
@@ -61,7 +61,7 @@ func (d *Deck) Card(index int) *Card {
 // is in the same order as the deck
 func (d *Deck) GetSignature() string {
 	sig := ""
-	for _, card := range d.cards {
+	for _, card := range d.Cards {
 		sig += card.GetSignature()
 	}
 	return sig
