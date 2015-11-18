@@ -4,13 +4,13 @@ import "fmt"
 
 // Card represents a Card with a Face and a Suit
 type Card struct {
-	face Face
-	suit Suit
+	Face Face
+	Suit Suit
 }
 
 func (c Card) String() string {
 	face := ""
-	switch c.face {
+	switch c.Face {
 	case 0:
 		face = "A"
 	case 1:
@@ -39,7 +39,7 @@ func (c Card) String() string {
 		face = "K"
 	}
 	suit := ""
-	switch c.suit {
+	switch c.Suit {
 	case 0:
 		suit = "♣"
 	case 1:
@@ -54,24 +54,24 @@ func (c Card) String() string {
 
 // GetSignature is the hex representation of the Face and Suit of the card
 func (c *Card) GetSignature() string {
-	return fmt.Sprintf("%x%x", c.face, c.suit)
+	return fmt.Sprintf("%x%x", c.Face, c.Suit)
 }
 
 // Compare compares 2 cards 1 if the passed in card is greater -1 if its lesser 0 of equal.
 func (c *Card) Compare(k Card) int {
-	if k.face > c.face {
+	if k.Face > c.Face {
 		return 1
 	}
 
-	if k.face < c.face {
+	if k.Face < c.Face {
 		return -1
 	}
 
-	if k.suit > c.suit {
+	if k.Suit > c.Suit {
 		return 1
 	}
 
-	if k.suit < c.suit {
+	if k.Suit < c.Suit {
 		return -1
 	}
 
