@@ -8,10 +8,10 @@ type Face string
 
 // Contants for Suit ♠♥♦♣
 const (
-	CLUB    Suit = "♣"
-	DIAMOND      = "♦"
-	HEART        = "♥"
-	SPADE        = "♠"
+	CLUB    Suit = "clubs"
+	DIAMOND      = "diamonds"
+	HEART        = "hearts"
+	SPADE        = "spades"
 )
 
 // Contants for Face

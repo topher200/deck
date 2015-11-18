@@ -9,7 +9,18 @@ type Card struct {
 }
 
 func (c Card) String() string {
-	return fmt.Sprintf("%s%s", c.Face, c.Suit)
+	suit := ""
+	switch c.Suit {
+	case "clubs":
+		suit = "♣"
+	case "diamonds":
+		suit = "♦"
+	case "hearts":
+		suit = "♥"
+	case "spades":
+		suit = "♠"
+	}
+	return fmt.Sprintf("%s%s", c.Face, suit)
 }
 
 // GetSignature is the hex representation of the Face and Suit of the card
