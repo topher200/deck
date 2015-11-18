@@ -11,16 +11,16 @@ func TestSmallDeckToString(t *testing.T) {
 	deck := NewEmptyDeck()
 	deck.Cards = append(deck.Cards, Card{ACE, HEART}, Card{KING, HEART})
 	result := fmt.Sprintf("%s", deck)
-	assert.Equal(t, "A♥\nK♥\n", result, "These should be equal")
+	assert.Equal(t, "A♥ K♥ ", result, "These should be equal")
 }
 
 func TestDeckToString(t *testing.T) {
 	deck := NewDeck(false)
 	result := fmt.Sprintf("%s", deck)
-	assert.Equal(t, "A♣\n2♣\n3♣\n4♣\n5♣\n6♣\n7♣\n8♣\n9♣\nT♣\nJ♣\nQ♣\nK♣\n"+
-		"A♦\n2♦\n3♦\n4♦\n5♦\n6♦\n7♦\n8♦\n9♦\nT♦\nJ♦\nQ♦\nK♦\n"+
-		"A♥\n2♥\n3♥\n4♥\n5♥\n6♥\n7♥\n8♥\n9♥\nT♥\nJ♥\nQ♥\nK♥\n"+
-		"A♠\n2♠\n3♠\n4♠\n5♠\n6♠\n7♠\n8♠\n9♠\nT♠\nJ♠\nQ♠\nK♠\n", result, "These should be equal")
+	assert.Equal(t, "A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣ "+
+		"A♦ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ T♦ J♦ Q♦ K♦ "+
+		"A♥ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ T♥ J♥ Q♥ K♥ "+
+		"A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠ Q♠ K♠ ", result, "These should be equal")
 }
 
 func TestDeckSignature(t *testing.T) {
