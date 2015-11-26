@@ -23,19 +23,6 @@ func TestDeckToString(t *testing.T) {
 		"A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠ Q♠ K♠ ", result, "These should be equal")
 }
 
-func TestDeckSignature(t *testing.T) {
-	deck := NewEmptyDeck()
-	deck.Cards = append(deck.Cards, Card{ACE, HEART}, Card{KING, HEART}, Card{TEN, CLUB})
-	result := deck.GetSignature()
-	assert.Equal(t, "02c290", result, "These should be equal")
-}
-
-func TestCompleteDeckSignature(t *testing.T) {
-	deck := NewDeck(false)
-	result := deck.GetSignature()
-	assert.Equal(t, "00102030405060708090a0b0c001112131415161718191a1b1c102122232425262728292a2b2c203132333435363738393a3b3c3", result, "These should be equal")
-}
-
 func TestNewTinyDeck(t *testing.T) {
 	deck := NewSpecificDeck(true, FACES, []Suit{SPADE})
 	assert.Equal(t, 13, deck.NumberOfCards())

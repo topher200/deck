@@ -49,15 +49,3 @@ func NewEmptyDeck() Deck {
 func (d *Deck) NumberOfCards() int {
 	return len(d.Cards)
 }
-
-// GetSignature returns the signature of the deck
-// The signature is a string in which each card is
-// represented as a hex character. Each hex character
-// is in the same order as the deck
-func (d *Deck) GetSignature() string {
-	sig := ""
-	for _, card := range d.Cards {
-		sig += card.GetSignature()
-	}
-	return sig
-}

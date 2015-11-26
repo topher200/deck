@@ -7,15 +7,27 @@ import (
 )
 
 func TestShuffle(t *testing.T) {
-	expected := NewDeck(false)
-	deck := NewDeck(false)
-	deck.Shuffle()
-	assert.NotEqual(t, expected.GetSignature(), deck.GetSignature())
+	original := NewDeck(false)
+	shuffled := NewDeck(false)
+	shuffled.Shuffle()
+	decksAreDifferent := false
+	for i, _ := range original.Cards {
+		if original.Cards[i] != shuffled.Cards[i] {
+			decksAreDifferent = true
+		}
+	}
+	assert.True(t, decksAreDifferent)
 }
 
 func TestMultiShuffle(t *testing.T) {
-	expected := NewDeck(false)
-	deck := NewDeck(false)
-	deck.MultiShuffle(10)
-	assert.NotEqual(t, expected.GetSignature(), deck.GetSignature())
+	original := NewDeck(false)
+	shuffled := NewDeck(false)
+	shuffled.MultiShuffle(10)
+	decksAreDifferent := false
+	for i, _ := range original.Cards {
+		if original.Cards[i] != shuffled.Cards[i] {
+			decksAreDifferent = true
+		}
+	}
+	assert.True(t, decksAreDifferent)
 }

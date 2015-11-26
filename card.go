@@ -23,11 +23,6 @@ func (c Card) String() string {
 	return fmt.Sprintf("%s%s", c.Face, suit)
 }
 
-// GetSignature is the hex representation of the Face and Suit of the card
-func (c *Card) GetSignature() string {
-	return fmt.Sprintf("%x%x", c.Face, c.Suit)
-}
-
 // Compare compares 2 cards 1 if the passed in card is greater -1 if its lesser 0 of equal.
 func (c *Card) Compare(k Card) int {
 	if k.Face > c.Face {

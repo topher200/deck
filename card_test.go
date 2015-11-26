@@ -13,12 +13,6 @@ func TestCardToString(t *testing.T) {
 	assert.Equal(t, "A♥", result, "These should be equal")
 }
 
-func TestCardSignature(t *testing.T) {
-	card := Card{ACE, HEART}
-	result := card.GetSignature()
-	assert.Equal(t, "02", result, "These should be equal")
-}
-
 func TestCardCompare(t *testing.T) {
 	card1 := Card{ACE, HEART}
 	card2 := Card{KING, HEART}
