@@ -1,5 +1,7 @@
 package deck
 
+import "fmt"
+
 // Suit represents the suit of the card (spade, heart, diamon, club)
 type Suit string
 
@@ -30,6 +32,44 @@ const (
 	QUEEN      = "Q"
 	KING       = "K"
 )
+
+// findIndex returns the location in the FACES slice of face
+func (face Face) findIndex() (int, error) {
+	for k, v := range FACES {
+		if face == v {
+			return k, nil
+		}
+	}
+	return 0, fmt.Errorf("face not found in faces list: '%s'", face)
+}
+
+// Decrement subtracts one value from a Face.
+//
+// Ace is considered low - decrementing from it returns error
+func Decrement(face Face) (Face, error) {
+	index, err := face.findIndex()
+	if err != nil {
+		return face, fmt.Errorf("Face '%v' not found", face)
+	}
+	if index <= 0 {
+		return face, fmt.Errorf("Can't decrement lowest Face '%s'", face)
+	}
+	return FACES[index-1], nil
+}
+
+// Increment adds one value to a Face.
+//
+// King is considered high - incrementing from it returns error
+func Increment(face Face) (Face, error) {
+	index, err := face.findIndex()
+	if err != nil {
+		return face, fmt.Errorf("Face '%v' not found", face)
+	}
+	if index >= len(FACES)-1 {
+		return face, fmt.Errorf("Can't increment highest Face '%s'", face)
+	}
+	return FACES[index+1], nil
+}
 
 // Global Variables representing the default suits and faces in a deck of cards
 var (
