@@ -40,6 +40,16 @@ func TestNewSmallDeck(t *testing.T) {
 	assert.Equal(t, 26, deck.NumberOfCards())
 }
 
+func TestCopyDeck(t *testing.T) {
+	deck := NewDeck(false)
+	newDeck := deck.Copy()
+	assert.Equal(t, deck.Cards, newDeck.Cards)
+	assert.Equal(t, deck, newDeck)
+	newDeck.Shuffle()
+	assert.NotEqual(t, deck.Cards, newDeck.Cards)
+	assert.NotEqual(t, deck, newDeck)
+}
+
 func BenchmarkTinyDeckShuffle(b *testing.B) {
 	deck := NewSpecificDeck(false, FACES, []Suit{SPADE})
 	for n := 0; n < b.N; n++ {

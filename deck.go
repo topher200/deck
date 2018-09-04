@@ -15,6 +15,15 @@ func (d Deck) String() string {
 	return str
 }
 
+func (d Deck) Copy() (newDeck Deck) {
+	newDeck.Cards = make([]Card, len(d.Cards))
+	numCardsCopied := copy(newDeck.Cards, d.Cards)
+	if numCardsCopied != len(d.Cards) {
+		panic(fmt.Sprintf("Expected to copy %v cards, got %v", len(d.Cards), numCardsCopied))
+	}
+	return
+}
+
 // NewDeck creates and returns a new deck with the bool parameter to either shuffle (true) or non shuffle (false)
 func NewDeck(shuffled bool) Deck {
 	deck := NewSpecificDeck(shuffled, FACES, SUITS)
