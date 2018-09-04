@@ -7,6 +7,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestCreateNewDeck(t *testing.T) {
+	deck := NewDeck(true)
+	assert.Equal(t, len(deck.Cards), 52)
+	deckShuffled := NewDeck(true)
+	assert.Equal(t, len(deckShuffled.Cards), 52)
+}
+
 func TestSmallDeckToString(t *testing.T) {
 	deck := NewEmptyDeck()
 	deck.Cards = append(deck.Cards, Card{ACE, HEART}, Card{KING, HEART})
