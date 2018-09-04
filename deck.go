@@ -15,13 +15,12 @@ func (d Deck) String() string {
 	return str
 }
 
-func (d Deck) Copy() (newDeck Deck) {
-	newDeck.Cards = make([]Card, len(d.Cards))
-	numCardsCopied := copy(newDeck.Cards, d.Cards)
-	if numCardsCopied != len(d.Cards) {
-		panic(fmt.Sprintf("Expected to copy %v cards, got %v", len(d.Cards), numCardsCopied))
+func (d Deck) Copy() Deck {
+	newDeck := NewEmptyDeck()
+	for _, card := range d.Cards {
+		newDeck.Cards = append(newDeck.Cards, card)
 	}
-	return
+	return newDeck
 }
 
 // NewDeck creates and returns a new deck with the bool parameter to either shuffle (true) or non shuffle (false)

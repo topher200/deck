@@ -2,6 +2,7 @@ package deck
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -44,7 +45,9 @@ func TestCopyDeck(t *testing.T) {
 	deck := NewDeck(false)
 	newDeck := deck.Copy()
 	assert.Equal(t, deck.Cards, newDeck.Cards)
+	assert.True(t, reflect.DeepEqual(deck.Cards, newDeck.Cards))
 	assert.Equal(t, deck, newDeck)
+	assert.True(t, reflect.DeepEqual(deck, newDeck))
 	newDeck.Shuffle()
 	assert.NotEqual(t, deck.Cards, newDeck.Cards)
 	assert.NotEqual(t, deck, newDeck)
